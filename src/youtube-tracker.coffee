@@ -22,7 +22,7 @@ module.exports = (robot) ->
   if not GOOGLE_API_KEY?
     return robot.logger.error "hubot-youtube-tracker: Missing GOOGLE_API_KEY in environment.  Please set and try again."
 
-  robot.respond /(?:tracker|ytt) recent (.*)/i, (res) ->
+  robot.respond /(?:tracker|ytt) recent (.*)/i, id: "tracker.recent", (res) ->
     query = res.match[1]
     # get channel
     QueryYoutube res, '/channels', { part: 'contentDetails', forUsername: query }, (channelObject) ->

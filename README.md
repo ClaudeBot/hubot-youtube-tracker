@@ -18,9 +18,10 @@ Then add **hubot-youtube-tracker** to your `external-scripts.json`:
 ]
 ```
 
-## Sample Interaction
 
-```
-user1>> hubot hello
-hubot>> hello!
-```
+## Commands
+
+Command | Listener ID | Description
+--- | --- | ---
+hubot tracker recent `channel` | `tracker.recent` | Get a list of the last 3 videos uploaded to a channel
+
