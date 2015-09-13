@@ -25,18 +25,19 @@ module.exports = (robot) ->
   robot.respond /(?:tracker|ytt) recent (.*)/i, (res) ->
     query = res.match[1]
     # get channel
-    QueryYoutube res, '/channels', { part: 'contentDetails,snippet', forUsername: query }, (channelObject) ->
-      channelUrl = 'https://youtube.com/channel/' + channelObject.items[0].id + '/videos'
-      username = channelObject.items[0].snippet.title
+    QueryYoutube res, '/channels', { part: 'contentDetails', forUsername: query }, (channelObject) ->
+      if not channelObject.items[0]
+        res.send "No channel found"
+        return
       uploadsId = channelObject.items[0].contentDetails.relatedPlaylists.uploads
       # get playlist
-      QueryYoutube res, '/playlistItems', { part: 'snippet', playlistId: uploadsId, maxResults: 5 }, (playlistObject) ->
+      QueryYoutube res, '/playlistItems', { part: 'snippet', playlistId: uploadsId, maxResults: 3 }, (playlistObject) ->
         videos = []
         for item in playlistObject.items
           videos.push( { title: item.snippet.title, id: item.snippet.resourceId.videoId } )
-        resstr = "#{username}: #{channelUrl}"
+        resstr = ""
         for v in videos
-          resstr += '\n' + v.title + " | https://youtu.be/" + v.id
+          resstr += v.title + " | https://youtu.be/" + v.id + '\n'
         res.send resstr
 
 QueryYoutube = (res, api, params = {}, handler) ->
