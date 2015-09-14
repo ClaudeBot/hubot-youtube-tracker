@@ -18,9 +18,18 @@ Then add **hubot-youtube-tracker** to your `external-scripts.json`:
 ]
 ```
 
+
 ## Sample Interaction
 
-```
-user1>> hubot hello
-hubot>> hello!
-```
+user>   Claudebot ytt recent Shouhei6015  
+claude> 【Mad Max 実況 Part㉔】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/wCfL5YTAW9c  
+claude> 【Mad Max 実況 Part㉓】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/UCBAZ7M0glc  
+claude> 【Mad Max 実況 Part㉒】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/PKijI-zpsXA  
+
+
+## Commands
+
+Command | Listener ID | Description
+--- | --- | ---
+hubot ytt recent `channel` | `youtube.tracker.recent` | Get a list of the last 3 videos uploaded to a channel
+

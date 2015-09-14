@@ -12,8 +12,5 @@ describe 'youtube-tracker', ->
 
     require('../src/youtube-tracker')(@robot)
 
-  it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/hello/)
-
-  it 'registers a hear listener', ->
-    expect(@robot.hear).to.have.been.calledWith(/orly/)
+  it 'registers listener for recent', ->
+    expect(@robot.respond).to.have.been.calledWith(/ytt recent (.+)/i)
