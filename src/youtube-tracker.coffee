@@ -41,7 +41,6 @@ module.exports = (robot) ->
         res.send resstr
 
 QueryYoutube = (res, api, params = {}, handler) ->
-  params.part = 'contentDetails,snippet'
   params.key = GOOGLE_API_KEY
   res.http("https://www.googleapis.com/youtube/v3#{api}")
     .query(params)
