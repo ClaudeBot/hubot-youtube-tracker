@@ -29,7 +29,7 @@ hubot ytt recent `channel` | `youtube.tracker.recent` | Get a list of the last 3
 
 ## Sample Interaction
 ```
-user1>>   Claudebot ytt recent Shouhei6015  
+user1>> hubot ytt recent Shouhei6015  
 hubot>> 【Mad Max 実況 Part㉔】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/wCfL5YTAW9c  
 hubot>> 【Mad Max 実況 Part㉓】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/UCBAZ7M0glc  
 hubot>> 【Mad Max 実況 Part㉒】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/PKijI-zpsXA  
