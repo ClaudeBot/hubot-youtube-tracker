@@ -21,10 +21,10 @@ Then add **hubot-youtube-tracker** to your `external-scripts.json`:
 
 ## Sample Interaction
 
-user>   Claudebot ytt recent Shouhei6015
-claude> 【Mad Max 実況 Part㉔】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/wCfL5YTAW9c
-claude> 【Mad Max 実況 Part㉓】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/UCBAZ7M0glc
-claude> 【Mad Max 実況 Part㉒】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/PKijI-zpsXA
+user>   Claudebot ytt recent Shouhei6015  
+claude> 【Mad Max 実況 Part㉔】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/wCfL5YTAW9c  
+claude> 【Mad Max 実況 Part㉓】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/UCBAZ7M0glc  
+claude> 【Mad Max 実況 Part㉒】もはや気分はケンシロウ！【日本語字幕付き】 | https://youtu.be/PKijI-zpsXA  
 
 
 ## Commands
