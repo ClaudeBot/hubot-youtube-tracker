@@ -5,18 +5,15 @@
 #   GOOGLE_API_KEY is required to make use of this script.
 #
 # Commands:
-#   <none>
+#   hubot ytt recent <channel> - Get the last 3 videos uploaded to <channel>
 #
 # Notes:
-#   <optional notes required for the script>
+#   This script is a work in progress...
 #
 # Author:
 #   Karl Birch <mbwkarl@gmail.com>
 
 GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
-
-querystring = require 'querystring'
-url = require 'url'
 
 module.exports = (robot) ->
   if not GOOGLE_API_KEY?
@@ -32,12 +29,12 @@ module.exports = (robot) ->
       uploadsId = channelObject.items[0].contentDetails.relatedPlaylists.uploads
       # get playlist
       QueryYoutube res, '/playlistItems', { part: 'snippet', playlistId: uploadsId, maxResults: 3 }, (playlistObject) ->
-        videos = []
-        for item in playlistObject.items
-          videos.push( { title: item.snippet.title, id: item.snippet.resourceId.videoId } )
+        if playlistObject.items.length == 0
+          res.send "No videos in the channel"
+          return
         resstr = ""
-        for v in videos
-          resstr += v.title + " | https://youtu.be/" + v.id + '\n'
+        for item in playlistObject.items
+          resstr += "#{item.snippet.title} | https://youtu.be/#{item.snippet.resourceId.videoId}\n"
         res.send resstr
 
 QueryYoutube = (res, api, params = {}, handler) ->
